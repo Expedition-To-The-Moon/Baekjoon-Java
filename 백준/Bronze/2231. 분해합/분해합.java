@@ -10,11 +10,11 @@ public class Main {
         int min = n - (l * 9);
         int res = 0;
 		for (int i = min; i < n; i++) {
-            String iStr = Integer.toString(i);
             int sum = 0;
-            for (int j = 0; j < iStr.length(); j++) {
-                int ch =(int)iStr.charAt(j) - '0';
-                sum += ch;
+            int num = i;
+            while (num != 0) {
+                sum += num % 10;
+                num /= 10;
             }
             if (n - i == sum) {
                 res = i;
