@@ -18,10 +18,8 @@ class Main {
             for (int j = i + 1; j < N - 1; j++) {
                 for (int k = j + 1; k < N; k++) {
                     int sum = arr.get(i) +  arr.get(j) +  arr.get(k);
-                    if (sum <= M) {
-                        if (sum >= res) {
-                            res = sum;
-                        }
+                    if (sum <= M && sum > res) {
+                        res = sum;
                     }
                 }
             }
