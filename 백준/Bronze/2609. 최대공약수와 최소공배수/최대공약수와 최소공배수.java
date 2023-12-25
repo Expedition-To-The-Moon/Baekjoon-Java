@@ -10,14 +10,21 @@ public class Main {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        int mul = a * b;
-        int i = a >= b ? b : a;
-        for (; i > 0; i--) {
-            if(a % i == 0 && b % i == 0) {
-                System.out.println(i);
-                System.out.println(mul / i);
+        int max = Math.max(a, b);
+        int min = Math.min(a, b);
+
+        int gcd;
+        while (true) {
+            int rest = max % min;
+            if(rest == 0) {
+                gcd = min;
                 break;
+            } else {
+                max = min;
+                min = rest;
             }
         }
+        System.out.println(gcd);
+        System.out.println(a * b / gcd);
     }
 }
