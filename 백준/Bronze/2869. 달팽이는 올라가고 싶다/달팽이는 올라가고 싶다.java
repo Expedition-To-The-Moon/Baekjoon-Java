@@ -7,8 +7,8 @@ class Main {
 		int b = sc.nextInt();
 		int v = sc.nextInt();
 
-		int day = (v - b) / (a - b);
-		if ((v - b) % (a - b) != 0) {
+		int day = ((v - a) / (a - b)) + 1;
+		if ((v - a) % (a - b) != 0) {
 			day++;
 		}
 		System.out.println(day);
