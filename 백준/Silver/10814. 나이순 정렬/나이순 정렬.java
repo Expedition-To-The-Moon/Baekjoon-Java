@@ -22,8 +22,9 @@ public class Main {
 		for (Pair p : li) {
 			int n = p.n;
 			String s = p.s;
-			System.out.println(n + " " + s);
+			sb.append(n).append(" ").append(s).append('\n');
 		}
+		System.out.println(sb);
 	}
 }
 
