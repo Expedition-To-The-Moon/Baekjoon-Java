@@ -14,6 +14,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             nums[i] = Integer.parseInt(br.readLine());
         }
+        Arrays.sort(nums);
         avg();
         median();
         mode();
@@ -29,7 +30,6 @@ public class Main {
     }
 
     static void median() {
-        Arrays.sort(nums);
         int idx = nums.length / 2;
         System.out.println(nums[idx]);
     }
@@ -55,17 +55,12 @@ public class Main {
     }
 
     static void scope() {
-        Arrays.sort(nums);
         if (nums.length == 1) {
             System.out.println(0);
         } else {
             int min = nums[0];
             int max = nums[nums.length - 1];
-            if (min <= 0 && max >= 0) {
-                System.out.println(Math.abs(min) + Math.abs(max));
-            } else {
-                System.out.println(max - min);
-            }
+            System.out.println(max - min);
         }
     }
 }
