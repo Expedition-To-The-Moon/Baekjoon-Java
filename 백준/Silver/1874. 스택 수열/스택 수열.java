@@ -4,47 +4,36 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 
 public class Main {
-    static LinkedList<Integer> stack;
-    static int[] arr;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
 
-        arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-        }
-        isPossible();
-    }
-
-    static void isPossible() {
-        StringBuilder sb = new StringBuilder();
-        boolean possible = true;
+        LinkedList<Integer> stack = new LinkedList<>();
         int idx = 0;
-        int i = 1;
 
-        stack = new LinkedList<>();
-        while (idx < arr.length) {
-            if (i <= arr[idx]) {
-                stack.push(i);
-                sb.append("+").append('\n');
-                while (!stack.isEmpty() && stack.peek() == arr[idx]) {
-                    stack.pop();
-                    sb.append("-").append('\n');
-                    idx++;
+        for (int i = 0; i < n; i++) {
+            int num = Integer.parseInt(br.readLine());
+
+            if (idx <= num) {
+                for (int j = idx + 1; j <= num; j++) {
+                    stack.push(j);
+                    idx = j;
+                    sb.append("+").append('\n');
                 }
-                i++;
-            } else {
-                possible = false;
-                break;
+            }
+
+            if (stack.getFirst() == num) {
+                stack.pop();
+                sb.append("-").append('\n');
             }
         }
 
-        if (possible) {
-            System.out.println(sb);
-        } else {
+        if (!stack.isEmpty()) {
             System.out.println("NO");
-        } 
+        } else {
+            System.out.println(sb);
+        }
     }
 }
