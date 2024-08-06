@@ -10,10 +10,6 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        if (n == k) {
-            System.out.println(0);
-            return;
-        }
 
         boolean[] visited = new boolean[100001];
         Queue<Integer> que = new LinkedList<>();
